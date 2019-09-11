@@ -1,28 +1,39 @@
+import java.io.File;
 import java.time.LocalTime;
 import java.time.temporal.Temporal;
 import java.util.Date;
 import java.util.Scanner;
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Message {
-    public static void main(String[] args) {
-        String message;
-        String author = System.getProperty("user.name");
-        LocalDate createdAt = LocalDate.now();
+
+        private String message;
+        private String author;
+        private Date createdAt;
+
         //LocalTime createdTime = LocalTime.now();
-        Date updatedAt;
 
+        class Update {
+            private Date updatedAt = new Date();
+        }
 
-        Scanner in = new Scanner(System.in);
+        //variables to message
+        public Message(String message, String author, Date createdAt) {
+            this.message = message;
+            this.author = System.getProperty("user.name");
+            this.createdAt = new Date();
+        }
 
-        message = in.next();
-        if (message.length()>10) {
-            System.out.println("too long");
-            return;
-        } else System.out.println(message);
-        System.out.println("created by: " + author);
-        System.out.println("created at: " + createdAt);
-        //System.out.println(createdTime);
-
+    //System.out.println(createdTime);
+    @Override
+    public String toString() {
+        //return message + "written by: " + author + "written at: " + createdAt.toString();
+        return author + ": " + message + "\non: " + createdAt.toString();
     }
+
+
+
+
 }
