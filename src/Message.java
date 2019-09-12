@@ -9,6 +9,7 @@ import java.util.ArrayList;
 
 public class Message {
 
+        private int id;
         private String message;
         private String author;
         private Date createdAt;
@@ -20,7 +21,8 @@ public class Message {
         }
 
         //variables to message
-        public Message(String message, String author, Date createdAt) {
+        public Message(int id, String message, String author, Date createdAt) {
+            this.id = id;
             this.message = message;
             this.author = System.getProperty("user.name");
             this.createdAt = new Date();
@@ -30,7 +32,7 @@ public class Message {
     @Override
     public String toString() {
         //return message + "written by: " + author + "written at: " + createdAt.toString();
-        return author + ": " + message + "\non: " + createdAt.toString();
+        return id + ": " + author + ": " + message + "\non: " + createdAt.toString();
     }
 
 

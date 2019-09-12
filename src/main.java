@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class main {
 
-    ArrayList<Message> messages;
+    private static ArrayList<Message> messages;
 
 
 
@@ -21,22 +21,47 @@ public class main {
         //System.out.println(createdTime);*/
 
         public static void main(String[] args) {
+            
+            messages = new ArrayList<Message>();
+            awaitInput();
+            /*if (message.length()>10) {
+                System.out.println("Message is too long");
+                awaitInput();
+
+            } else System.out.println(post.toString());
+            awaitInput();*/
+
+    }
+
+    private static void awaitInput() {
+
+        Scanner sc = new Scanner(System.in);
+        String message = sc.nextLine();
+
+        Message post = new Message(messages.size(), message, "author", new Date());
+        if (message.contentEquals("/stop")){
+            System.out.println("Shutting down!");
+            return;
+        } else if (message.length() > 20) {
+            System.out.println("Message is too long");
+            awaitInput();
+        } else if (message.length() == 0){
+            System.out.println("There is no message");
+            awaitInput();
+        } else System.out.println(post.toString());
+        messages.add(post);
+        awaitInput();
+
+    }
+}
+
+
             /*String messages;
             messages = new ArrayList<Message>();
             scanner = new Scanner(System.in);
             System.out.print("hello");
             Scanner sc = new Scanner(System.in);
             messages = sc.next();*/
-
-
-            Message test = new Message("message", "author", new Date());
-            Scanner sc = new Scanner(System.in);
-            Object Message = sc.next();
-            System.out.println(test.toString());
-
-
-
-
 
             /*String message;
             String author = System.getProperty("user.name");
@@ -47,7 +72,3 @@ public class main {
                 System.out.println("too long");
                 return;
             } else System.out.println(author + ": " + message + "\non: " + createdAt);*/
-
-    }
-
-}
