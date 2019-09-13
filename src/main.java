@@ -34,7 +34,7 @@ public class main {
     }
 
     private static void awaitInput() {
-
+        System.out.print(": ");
         Scanner sc = new Scanner(System.in);
         String message = sc.nextLine();
 
@@ -43,12 +43,23 @@ public class main {
         if (message.contentEquals("/stop")){
             System.out.println("Shutting down!");
             System.exit(0);
+
         } else if (message.length() > 20) {
             System.out.println("Message is too long");
             awaitInput();
+
         } else if (message.length() == 0){
             System.out.println("There is no message");
             awaitInput();
+
+        } else if (message.contentEquals("/view")) {
+            System.out.println(messages);
+            awaitInput();
+
+        } else if (message.contentEquals("/edit")) {
+            System.out.println("edit");
+            awaitInput();
+
         } else System.out.println(post.toString());
         messages.add(post);
         awaitInput();

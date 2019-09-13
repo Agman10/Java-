@@ -32,7 +32,7 @@ public class Message {
     @Override
     public String toString() {
         //return message + "written by: " + author + "written at: " + createdAt.toString();
-        return id + ": " + author + ": " + message + "\non: " + createdAt.toString();
+        return id + ": " + author + ": " + message + "\non: " + createdAt.toString() + "\n";
     }
 
 
