@@ -21,7 +21,7 @@ public class main {
         //System.out.println(createdTime);*/
 
         public static void main(String[] args) {
-            
+            System.out.println("Starting!");
             messages = new ArrayList<Message>();
             awaitInput();
             /*if (message.length()>10) {
@@ -38,10 +38,11 @@ public class main {
         Scanner sc = new Scanner(System.in);
         String message = sc.nextLine();
 
+
         Message post = new Message(messages.size(), message, "author", new Date());
         if (message.contentEquals("/stop")){
             System.out.println("Shutting down!");
-            return;
+            System.exit(0);
         } else if (message.length() > 20) {
             System.out.println("Message is too long");
             awaitInput();
@@ -51,7 +52,6 @@ public class main {
         } else System.out.println(post.toString());
         messages.add(post);
         awaitInput();
-
     }
 }
 
